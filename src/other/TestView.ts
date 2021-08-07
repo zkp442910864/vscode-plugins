@@ -28,7 +28,7 @@ export class TestView {
     private nodes: any = {};
 
     constructor(context: vscode.ExtensionContext) {
-        const view = vscode.window.createTreeView('record-command', {treeDataProvider: this, showCollapseAll: true, canSelectMany: true});
+        const view = vscode.window.createTreeView('common-command', {treeDataProvider: this, showCollapseAll: true, canSelectMany: true});
         context.subscriptions.push(view);
 
         // vscode.commands.registerCommand('testView.reveal', async () => {

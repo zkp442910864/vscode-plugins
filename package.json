@@ -1,7 +1,7 @@
 {
-    "name": "record-command",
-    "displayName": "record-command",
-    "description": "record-command",
+    "name": "common-command",
+    "displayName": "common-command",
+    "description": "common-command",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.50.0"
@@ -9,30 +9,30 @@
     "categories": [
         "Other"
     ],
+    "icon": "public/command.png",
     "activationEvents": [
-        "onCommand:record-command.helloWorld",
         "onStartupFinished"
     ],
     "main": "./dist/extension.js",
     "contributes": {
         "commands": [
             {
-                "command": "record-command.helloWorld",
-                "title": "Hello World"
+                "command": "common-command.command",
+                "title": "常用命令ccc"
             }
         ],
         "menus": {
             "editor/context": [
                 {
-                    "when": "editorFocus",
-                    "command": "record-command.helloWorld",
-                    "group": "navigation"
+                    "when": "ext.command.showRightMenu",
+                    "command": "common-command.command",
+                    "group": "navigation@1"
                 }
             ],
             "editor/title": [
                 {
-                    "when": "editorFocus",
-                    "command": "record-command.helloWorld",
+                    "when": "ext.command.showTopEditorTitle",
+                    "command": "common-command.command",
                     "group": "navigation"
                 }
             ]
@@ -40,27 +40,34 @@
         "viewsContainers": {
 			"activitybar": [
 				{
-					"id": "recordCommand",
+					"id": "commonCommand",
 					"title": "记录命令",
 					"icon": "public/images/bookmark-activity-bar.svg"
 				}
 			]
 		},
-        "views": {
-            "recordCommand": [
-                {
-                    "id": "record-command",
-                    "name": "Dependencies"
+        "configuration": {
+            "title": "CommonCommand",
+            "properties": {
+                "common-command.showTopEditorTitle": {
+					"scope": "resource",
+					"type": "boolean",
+					"default": false,
+					"description": "vscode 重启生效，开启顶部菜单栏"
+				},
+                "common-command.showRightMenu": {
+					"scope": "resource",
+					"type": "boolean",
+					"default": false,
+					"description": "vscode 重启生效，开启顶右键菜单项"
+				},
+                "common-command.commonCommandData": {
+                    "scope": "resource",
+                    "type": "array",
+                    "description": "vscode 重启生效，配置命令数据 {label: string, value: string}[]"
                 }
-            ]
-        },
-        "viewsWelcome": [
-            {
-                "view": "scm",
-                "contents": "[新增命令](command:record-command.helloWorld)",
-                "when": "true"
             }
-        ]
+        }
     },
     "scripts": {
         "vscode:prepublish": "yarn run package",
