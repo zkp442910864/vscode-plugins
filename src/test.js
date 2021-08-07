@@ -1,5 +1,8 @@
 import * as vscode from 'vscode';
 
+// 发布插件地址(没有，要先创建): https://marketplace.visualstudio.com/manage/publishers/zhoukaipeng3?auth_redirect=True
+// 发布方式文档： https://code.visualstudio.com/api/working-with-extensions/publishing-extension
+
 // package.json 配置
 const package = {
     // https://code.visualstudio.com/api/references/activation-events

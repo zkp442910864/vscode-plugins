@@ -3,8 +3,9 @@
     "displayName": "common-command",
     "description": "common-command",
     "version": "0.0.1",
+    "publisher": "zhoukaipeng3",
     "engines": {
-        "vscode": "^1.50.0"
+        "vscode": "^1.59.0"
     },
     "categories": [
         "Other"
